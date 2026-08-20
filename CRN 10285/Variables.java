@@ -3,12 +3,13 @@ public class Variables
    public static void main(String[] args)
    {
       char firstI = 'O';
-      int age = 38;
-      String name = "Octavio";
+      int myAge = 38;
+      String myName = "Octavio";
       double weight = 181.5;
       boolean isOnlyChild = false;
       
-      System.out.print("My name is " + name);
-      System.out.print("I am " + age + " years old." );
+      System.out.println("My name is " + myName);
+      System.out.println("I am " + myAge + " years old.");
+      
    }
 }
