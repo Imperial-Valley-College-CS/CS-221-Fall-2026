@@ -4,6 +4,7 @@
  {
    public static void main(String[] args)
    {
+      //Create a Scanner object to allow user input
       Scanner scan = new Scanner(System.in);
       
       System.out.print("What is your name? ");
@@ -15,9 +16,9 @@
       System.out.print("Are you an only child (true/false)? ");
       boolean isOnlyChild = scan.nextBoolean();
       
-      System.out.println( yourName );
-      System.out.println( yourAge );
-      System.out.println( isOnlyChild );
+      //System.out.println( yourName );
+      //System.out.println( yourAge );
+      //System.out.println( isOnlyChild );
       
    }
  }
