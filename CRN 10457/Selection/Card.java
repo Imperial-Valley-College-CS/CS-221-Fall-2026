@@ -9,7 +9,8 @@ public class Card
       System.out.print("Enter a card symbol ");
       String simba = scan.next().toUpperCase();      //AH or 2S or 10C or JD
       
-      char rank = simba.charAt(0);
+      int lastIndex = simba.length()-1;
+      String rank = simba.substring(0,lastIndex);
       char suit; 
       
       if( simba.length() > 2 )
@@ -19,9 +20,9 @@ public class Card
          
       switch( rank )
       {
-         case 'A': System.out.print( "Ace of " ); break;
-         case '2': System.out.print( "Two of " ); break;
-         case '1': System.out.print( "Ten of " ); break;
+         case "A": System.out.print( "Ace of " ); break;
+         case "2": System.out.print( "Two of " ); break;
+         case "10": System.out.print( "Ten of " ); break;
       }
       switch( suit )
       {
