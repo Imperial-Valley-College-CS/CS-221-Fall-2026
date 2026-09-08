@@ -11,8 +11,8 @@ public class Card
       
       int lastIndex = simba.length()-1;
       String rank = simba.substring(0,lastIndex);
-      char suit; 
-      
+      char suit;
+           
       if( simba.length() > 2 )
          suit = simba.charAt(2);
       else
