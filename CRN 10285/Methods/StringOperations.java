@@ -24,6 +24,6 @@ public class StringOperations
             count++;
       }
       
-      return count >= 2;
+      return (count >= 2);
    }
 }

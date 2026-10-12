@@ -2,6 +2,8 @@ public class NumberSense
 {
    public static void main(String[] args)
    {
+      //System.out.println( args[0] );
+      //System.out.println( args[1] );
       // System.out.println( "10946 in resverse order: " + reverse(10946) );
 //       System.out.println( "15051 is a palindrome: " + isPalindrome(15051) );
 //       System.out.println( "1578 is a palindrome: " + isPalindrome(1578) );

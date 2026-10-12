@@ -19,13 +19,19 @@ public class Factors
          if( num % i == 0 )
          {
             sumFactors = sumFactors + i;
-            factors = factors + i + ", ";
+            factors = factors + i + " + ";
          }
             
          i++;
       }
       
-      System.out.println( factors.substring(0,factors.length()-2) );
-      System.out.println( "Sum of factors: " + sumFactors );
+      if( num == sumFactors )
+      {
+         System.out.print( factors.substring(0,factors.length()-3) );
+         System.out.print( " = " + sumFactors );
+      }else
+      {
+         System.out.println(num + " is not a perfect number.");
+      }
    }
 }
