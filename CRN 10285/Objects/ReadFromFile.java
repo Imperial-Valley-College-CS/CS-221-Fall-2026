@@ -6,13 +6,14 @@ public class ReadFromFile
 {
    public static void main(String[] args)
    {
-      System.out.println( System.getProperty("user.dir") );
-      String filename = "InvaderData.csv";
+      String filename = "SquidMatrix.txt";
       
       try
       {
          File f = new File(filename);
          Scanner scan = new Scanner(f);
+         System.out.println( scan.nextLine() );
+         System.out.println( scan.nextLine() );
          
       }catch(FileNotFoundException e)
       {
