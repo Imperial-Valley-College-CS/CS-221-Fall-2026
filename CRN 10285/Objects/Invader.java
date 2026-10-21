@@ -6,8 +6,9 @@ public class Invader
 {
    private String filename = "SquidMatrix.txt";
    private boolean[][] body = new boolean[8][12];
+   private Position position;
    
-   public Invader(String type, double x, double y)
+   public Invader(String type, double a, double b)
    {
       switch( type )
       {
@@ -15,6 +16,7 @@ public class Invader
          case "crab": this.filename = "CrabMatrix.txt"; break;
          case "octopus": this.filename = "OctopusMatrix.txt"; break;
       }
+      this.position = new Position(a, b);
       setBody();
    }
    
