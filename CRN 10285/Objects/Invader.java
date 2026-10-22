@@ -28,6 +28,11 @@ public class Invader
       return this.body;
    }
    
+   public Color getColor()
+   {
+      return this.color;
+   }
+   
    public void setBody()
    {
       try

@@ -16,14 +16,33 @@ public class App extends Application
    @Override
    public void start(Stage stage)
    {
-      drawInvader("squid", 20, 50);
+      drawInvader("crab", 20, 50);
       stage.setScene(scene);
       stage.show();
    }
    
    public void drawInvader(String type, double x, double y)
    {
-      gc.setFill( Color.WHITE );
-      gc.fillRect(x, y, 10, 10);
+      Invader vader = new Invader(type, x, y);
+      boolean[][] vaderBody = vader.getBody();
+      Color vaderColor = vader.getColor();
+      
+      gc.setFill( vaderColor );
+      
+      double startX = x;
+      
+      for( int i = 0; i < vaderBody.length; i++ )
+      {
+         for( int j = 0; j < vaderBody[i].length; j++ )
+         {
+            if( vaderBody[i][j] )
+            {
+               gc.fillRect(x, y, 10, 10);               
+            }
+            x = x + 10;
+         }
+         x = startX;
+         y = y + 10;
+      }
    }
 }
