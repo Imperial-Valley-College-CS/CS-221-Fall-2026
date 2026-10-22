@@ -1,15 +1,18 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import javafx.scene.paint.Color;
 
 public class Invader
 {
    private String filename = "SquidMatrix.txt";
    private boolean[][] body = new boolean[8][12];
    private Position position;
+   private Color color;
    
    public Invader(String type, double a, double b)
    {
+      this.color = Color.rgb(147,19,173);    //purple
       switch( type )
       {
          case "squid": this.filename = "SquidMatrix.txt"; break;
