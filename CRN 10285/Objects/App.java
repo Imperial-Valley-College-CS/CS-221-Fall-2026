@@ -16,7 +16,7 @@ public class App extends Application
    @Override
    public void start(Stage stage)
    {
-      drawInvader("crab", 20, 50);
+      drawInvader("octopus", 20, 50);
       stage.setScene(scene);
       stage.show();
    }
