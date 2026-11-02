@@ -12,6 +12,6 @@ public class TestStudents
       System.out.println( s1.getName() );
       s1.setGrades(g);
       System.out.println( s1.getGPA() );
-      
+      s1.calcGPA();      
    }
 }

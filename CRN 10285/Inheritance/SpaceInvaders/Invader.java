@@ -1,13 +1,16 @@
 import javafx.scene.paint.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Invader
 {
    //data fields
-   private int health, speedX, speedY;
-   private boolean isAlive, body[][];
-   private String filename;
-   private Color color;
-   private Position pos;
+   protected int health, speedX, speedY;
+   protected boolean isAlive, body[][];
+   protected String filename;
+   protected Color color;
+   protected Position pos;
    
    //constructor
    public Invader(double x, double y)
