@@ -51,4 +51,15 @@ public class Invader
          System.out.println( filename + " not found.");
       }
    }
+   
+   public boolean hit()
+   {
+      if( this.isAlive )
+         this.health--;
+         
+      if( this.health <= 0 )
+         this.isAlive = false;
+         
+      return this.isAlive;
+   }
 }

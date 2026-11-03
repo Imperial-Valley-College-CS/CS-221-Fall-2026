@@ -4,10 +4,10 @@ import javafx.scene.paint.Color;
 public class Person
 {
    //data fields
-   private String name, gender, race, nationalities[], ethnicity;
-   private int age, weight, heightInches;
-   private GregorianCalendar dob;
-   private Color eyeColor, hairColor;
+   protected String name, gender, race, nationalities[], ethnicity;
+   protected int age, weight, heightInches;
+   protected GregorianCalendar dob;
+   protected Color eyeColor, hairColor;
    
    //constructors
    public Person(String name, String gender, String d)
@@ -20,6 +20,7 @@ public class Person
    //methods
    private void setDOB( String date )
    {
+      // "3-15-2023"
       String[] tokens = date.split("-");        //{"3", "15", "2023"}
       int year = Integer.parseInt(tokens[2]);
       int month = Integer.parseInt(tokens[0])-1;
