@@ -42,8 +42,7 @@ public class AppMoveWithKeys extends Application
       @Override
       public void handle(KeyEvent event)        //handle methods is invoked when there's a KeyEvent
       {
-         key = event.getCode();
-         System.out.println( key ); //print KeyEvent code
+         key = event.getCode();         
       }
    }
    
