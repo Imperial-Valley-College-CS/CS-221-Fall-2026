@@ -25,18 +25,56 @@ public class App extends Application
    @Override
    public void start(Stage stage)
    {
-      timer.start();
+      initializeSnake();
+      timer.start();                      //handle method in timer is invoked
       scene.setOnKeyPressed(keyHandle);   //makes keyboard come to life
       stage.setScene( scene );
       stage.show();
    }
    
-   public void drawSquare()
+   public void initializeSnake()
+   { 
+      snake.add( new Block(startX, startY) );      //head of snake
+      snake.add( new Block(startX-Constants.BLOCK_SIZE, startY) );      //body of snake
+      snake.add( new Block(startX-2*Constants.BLOCK_SIZE, startY) );      //tail of snake      
+   }
+   
+   public void updateSnake()
    {
+      Block head = snake.get(0);
+      double headX = head.getX();
+      double headY = head.getY();
+      
+      double newX = headX;
+      double newY = headY;
+      
+      if( key == KeyCode.UP )
+         newY -= Constants.BLOCK_SIZE;
+      if( key == KeyCode.DOWN )
+         newY += Constants.BLOCK_SIZE;
+      if( key == KeyCode.RIGHT )
+         newX += Constants.BLOCK_SIZE;
+      if( key == KeyCode.LEFT )
+         newX -= Constants.BLOCK_SIZE;
+         
+      //add new head
+      snake.add(0, new Block(newX, newY) );
+      
+      //remove tail
+      snake.remove( snake.size()-1 );      
+   }
+   
+   public void drawSnake()
+   { 
+      //paints entire Canvas black
       gc.setFill( Constants.SCN_COLOR );
       gc.fillRect(0,0,Constants.SCN_WIDTH,Constants.SCN_HEIGHT);
+      
+      //set snake color
       gc.setFill( Constants.BLOCK_COLOR );
-      gc.fillRect(x,y,Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
+      
+      for( Block b : snake )
+         gc.fillRect(b.getX(),b.getY(),Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
    }
    
    class HandleKey implements EventHandler<KeyEvent>
@@ -53,16 +91,8 @@ public class App extends Application
       @Override
       public void handle(long now)     //handle method is invoked on EVERY computational frame
       {
-         // if( key == KeyCode.UP )
-//             y -= Constants.DELTA;
-//          if( key == KeyCode.LEFT )
-//             x -= Constants.DELTA;
-//          if( key == KeyCode.DOWN )
-//             y += Constants.DELTA;
-//          if( key == KeyCode.RIGHT )
-//             x += Constants.DELTA;
-            
-         drawSquare();
+         updateSnake();
+         drawSnake();
       }
    }
 }
