@@ -15,6 +15,8 @@ public class Block
    {
       this.x = x;
       this.y = y;
+      this.im = new Image("mario.jpg");
+      this.imView = new ImageView(this.im);
    }
    
    //methods
@@ -22,6 +24,10 @@ public class Block
    public void setY( double y ){ this.y = y; }
    public double getX(){ return this.x; }
    public double getY(){ return this.y; }
+   public Image getImage()
+   {
+      return this.im;
+   }
    public Color getColor()
    {
       int red = (int)(256*Math.random());

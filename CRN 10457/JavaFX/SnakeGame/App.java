@@ -110,6 +110,7 @@ public class App extends Application
          //set snake color
          gc.setFill( b.getColor() );
          gc.fillRect(b.getX(),b.getY(),Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
+         //gc.drawImage(b.getImage(), b.getX(),b.getY(),Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
       }
        
    }
