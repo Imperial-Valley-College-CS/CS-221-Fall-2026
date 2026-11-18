@@ -21,11 +21,13 @@ public class App extends Application
    private double startX = 50;
    private double startY = 30;
    private ArrayList<Block> snake = new ArrayList<>(3);
+   private Block snack = new Block(0,0);
    
    @Override
    public void start(Stage stage)
    {
       initializeSnake();
+      updateSnack();
       timer.start();                      //handle method in timer is invoked
       scene.setOnKeyPressed(keyHandle);   //makes keyboard come to life
       stage.setScene( scene );
@@ -37,6 +39,14 @@ public class App extends Application
       snake.add( new Block(startX, startY) );      //head of snake
       snake.add( new Block(startX-Constants.BLOCK_SIZE, startY) );      //body of snake
       snake.add( new Block(startX-2*Constants.BLOCK_SIZE, startY) );      //tail of snake      
+   }
+   
+   public void updateSnack()
+   {
+      double randX = (int)(Constants.SCN_WIDTH*Math.random()/10)*10;
+      double randY = (int)(Constants.SCN_HEIGHT*Math.random()/10)*10;
+      snack.setX(randX);
+      snack.setY(randY);
    }
    
    public void updateSnake()
@@ -57,11 +67,30 @@ public class App extends Application
       if( key == KeyCode.LEFT )
          newX -= Constants.BLOCK_SIZE;
          
+      boolean ate = ateSnack( newX, newY );
+      
+      // hitWall(newX, newY);
+      
       //add new head
       snake.add(0, new Block(newX, newY) );
       
-      //remove tail
-      snake.remove( snake.size()-1 );      
+      if( ate )
+         updateSnack();    //update snack and don't remove tail
+      else         
+         snake.remove( snake.size()-1 );    //remove tail  
+   }
+   
+   public void hitWall( double headX, double headY )
+   {
+      if( headX >= Constants.SCN_WIDTH || headX <= 0 )
+         timer.stop();
+      if( headY >= Constants.SCN_HEIGHT || headY <= 0 )
+         timer.stop();
+   }
+   
+   public boolean ateSnack(double headX, double headY)
+   {
+      return ( headX == snack.getX() && headY == snack.getY() );
    }
    
    public void drawSnake()
@@ -70,11 +99,19 @@ public class App extends Application
       gc.setFill( Constants.SCN_COLOR );
       gc.fillRect(0,0,Constants.SCN_WIDTH,Constants.SCN_HEIGHT);
       
-      //set snake color
-      gc.setFill( Constants.BLOCK_COLOR );
+      //paint snack on Canvas
+      gc.setFill( Constants.SNACK_COLOR );
+      gc.fillRect( snack.getX(), snack.getY(),Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
       
+      
+      //paint snake on Canvas
       for( Block b : snake )
+      {
+         //set snake color
+         gc.setFill( b.getColor() );
          gc.fillRect(b.getX(),b.getY(),Constants.BLOCK_SIZE,Constants.BLOCK_SIZE);
+      }
+       
    }
    
    class HandleKey implements EventHandler<KeyEvent>

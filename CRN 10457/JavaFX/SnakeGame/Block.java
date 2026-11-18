@@ -1,5 +1,6 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 public class Block
 {
@@ -7,6 +8,7 @@ public class Block
    private double x, y;
    private Image im;
    private ImageView imView;
+   private Color color;
    
    //constructor
    public Block( double x, double y )
@@ -20,4 +22,12 @@ public class Block
    public void setY( double y ){ this.y = y; }
    public double getX(){ return this.x; }
    public double getY(){ return this.y; }
+   public Color getColor()
+   {
+      int red = (int)(256*Math.random());
+      int green = (int)(256*Math.random());
+      int blue = (int)(256*Math.random());
+      
+      return Color.rgb(red, green, blue);
+   }
 }

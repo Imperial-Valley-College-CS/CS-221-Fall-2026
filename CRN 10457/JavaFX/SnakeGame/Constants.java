@@ -10,4 +10,6 @@ public class Constants
    public static double BLOCK_SIZE = 10;
    public static Color BLOCK_COLOR = Color.WHITE;
    public static double DELTA = 5;
+   
+   public static Color SNACK_COLOR = Color.RED;
 }
